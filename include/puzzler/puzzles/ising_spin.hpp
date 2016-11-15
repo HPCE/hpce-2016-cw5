@@ -177,22 +177,6 @@ namespace puzzler
 
 
   protected:
-    /* Start from node start, then follow a random walk of length nodes, incrementing
-       the count of all the nodes we visit. */
-    void random_walk(std::vector<dd_node_t> &nodes, uint32_t seed, unsigned start, unsigned length) const
-    {
-      uint32_t rng=seed;
-      unsigned current=start;
-      for(unsigned i=0; i<length; i++){
-        nodes[current].count++;
-
-        unsigned edgeIndex = rng % nodes[current].edges.size();
-        rng=lcg(rng);
-        
-        current=nodes[current].edges[edgeIndex];
-      }
-    }
-
 
     virtual void Execute(
 			 ILog *log,
